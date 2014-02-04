@@ -6,8 +6,6 @@
  */ 
 
 #include "include/leds.h"
-#include "include/hardwareprofile.h"
-#include "include/gpio.h"
 
 #ifdef _USE_LEDS
 void inline InitLEDs ( void )

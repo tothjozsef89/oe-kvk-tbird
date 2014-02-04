@@ -8,8 +8,8 @@
 #ifndef LM35_H_
 #define LM35_H_
 
+#include "tbird.h"
 #include "adc.h"
-#include "hardwareprofile.h"
 
 double TGetTemp(void);
 

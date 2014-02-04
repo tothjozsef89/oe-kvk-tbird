@@ -76,7 +76,7 @@
 /**
  *  \page group__ledek LED-ek
  */
-#include "include/hardwareprofile.h" /** \file include/hardwareprofile.h */
+#include "tbird.h"
 
 #ifdef _USE_LEDS
 #define LEDS_PORT_LOW		__LEDS_PORT_LOW__

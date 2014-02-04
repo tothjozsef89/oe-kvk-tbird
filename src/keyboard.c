@@ -6,10 +6,6 @@
  */
 
 #include "include/keyboard.h"
-#include "include/hardwareprofile.h"
-#include <avr/io.h>
-#include <avr/interrupt.h>
-#include "include/display.h"
 
 #ifdef _USE_KEYBOARD
 static inline void KStartScan(void);
@@ -69,7 +65,6 @@ static inline void KStopScan(void)
 {
 	TCNT2 = 0;
 	TIMSK &= ~_BV(TOIE2);
-
 }
 
 static inline base_t KScanKbd(void)

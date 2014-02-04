@@ -14,8 +14,7 @@
 #ifndef DISPLAY_H_
 #define DISPLAY_H_
 
-#include "include/hardwareprofile.h" /** \file hardwareprofile.h */
-#include "include/gpio.h" /** \file gpio.h */
+#include "include/tbird.h"
 
 /**
  * \defgroup kijelzo Hétszegmenses kijelzők

@@ -8,10 +8,7 @@
 #ifndef RGB_H_
 #define RGB_H_
 
-#include "hardwareprofile.h"
-#include "gpio.h"
-#include <avr/io.h>
-#include <avr/interrupt.h>
+#include "tbird.h"
 
 #define RGB_RED_PORT	__RGB_RED_PORT__
 #define RGB_RED			_BV(__RGB_RED__)

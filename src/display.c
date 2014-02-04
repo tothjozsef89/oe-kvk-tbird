@@ -5,10 +5,7 @@
  *  Author: nemeth
  */
 
-#include <avr/interrupt.h>
-#include <avr/io.h>
 #include "include/display.h"
-#include "include/hardwareprofile.h"
 
 #ifdef _USE_DISPLAY
 void InitDisplay()

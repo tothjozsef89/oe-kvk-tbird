@@ -26,8 +26,7 @@
 #ifndef KEYBOARD_H_
 #define KEYBOARD_H_
 
-#include "include/hardwareprofile.h" /** \file hardwareprofile.h */
-#include "include/typedefs.h" 	/** \file typedefs.h */
+#include "tbird.h"
 
 #define KEYBOARD_PORT			__KEYBOARD_PORT__
 

@@ -6,7 +6,6 @@
  */
 
 #include "include/buttons.h"
-#include "include/hardwareprofile.h"
 
 #ifdef _USE_BUTTONS
 

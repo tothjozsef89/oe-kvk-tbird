@@ -17,8 +17,6 @@
 #define HARDWERPROFILE_H_
 
 #include <avr/io.h>
-#include "include/typedefs.h"
-#include "include/tbird.h"	/** \file include/tbird.h */
 
 /**
  * \def F_CPU

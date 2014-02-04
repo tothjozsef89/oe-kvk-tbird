@@ -8,8 +8,7 @@
 #ifndef ADC_H_
 #define ADC_H_
 
-#include <avr/io.h>
-#include "hardwareprofile.h"
+#include "tbird.h"
 
 #if defined(_USE_LM35)  || defined(_USE_TRIMMER)
 

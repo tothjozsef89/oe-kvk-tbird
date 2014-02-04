@@ -9,8 +9,11 @@
 #ifndef TBIRD_H_
 #define TBIRD_H_
 
-#include "include/typedefs.h"
-#include "include/hardwareprofile.h"
+#include "typedefs.h"
+#include "hardwareprofile.h"
+#include "gpio.h"
+#include <avr/interrupt.h>
+#include <stdio.h>
 
 #define _USE_BUTTONS
 #define _USE_LEDS
@@ -20,13 +23,13 @@
 #define _USE_TRIMMER
 #define _USE_LM35
 #define _USE_RGB
-#define _USE_BUZZER
+//#define _USE_BUZZER
 
 //TODO Teásember!!!
 //#define _USE_LCD
 
 #ifdef _USE_BUTTONS
-#include "include/buttons.h"
+#include "buttons.h"
 #endif // _USE_BUTTONS
 
 #ifdef _USE_LEDS

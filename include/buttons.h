@@ -14,8 +14,7 @@
 #ifndef BUTTONS_H_
 #define BUTTONS_H_
 
-#include "include/hardwareprofile.h" /** \file hardwareprofile.h */
-#include "include/gpio.h"
+#include "tbird.h"
 
 #ifdef _USE_BUTTONS
 /**

@@ -8,11 +8,8 @@
 #ifndef UART_H_
 #define UART_H_
 
-
-#include "include/hardwareprofile.h"
 #include "include/tbird.h"
-#include <avr/io.h>
-#include <stdio.h>
+
 #ifdef _USE_UART
 #define BAUD					9600
 #define USE_2X					0

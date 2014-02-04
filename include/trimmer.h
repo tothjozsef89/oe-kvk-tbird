@@ -10,7 +10,6 @@
 
 #include "tbird.h"
 #include "adc.h"
-#include "hardwareprofile.h"
 
 double TGetTrimmerVal(void);
 

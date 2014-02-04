@@ -5,7 +5,6 @@
  *  Author: nemeth
  */ 
 #include "include/tbird.h"
-#include <avr/interrupt.h>
 
 void InitBoard ( void )
 {
