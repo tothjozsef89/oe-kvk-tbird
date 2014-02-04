@@ -25,6 +25,7 @@
 
 void InitADC(void);
 void ASwitchADCH(base_t xChannel);
+uint16_t AGetADCVal(base_t xSDChannel);
 
 #endif
 

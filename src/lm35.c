@@ -7,6 +7,7 @@
 
 #include "include/lm35.h"
 
+#ifdef _USE_LM35
 double TGetTemp(void)
 {
 	uint16_t uiADCVal = 0;
@@ -20,3 +21,4 @@ double TGetTemp(void)
 	dRetVal = (V_INTERNAL/1024)*(uiADCVal-20); // -20 kompenzáció...
 	return dRetVal;
 }
+#endif

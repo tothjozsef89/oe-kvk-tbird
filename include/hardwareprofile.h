@@ -76,4 +76,16 @@
 #define __KBD_COL_MIDDLE__		1
 #define __KBD_COL_RIGHT__		2
 
+#define __VREF_INTERNAL__		(_BV(REFS1) | _BV(REFS0))
+#define __VREF_AVCC__			_BV(REFS0)
+#define __LM35_AN_CH__			0
+#define __TRIMMER_AN_CH__		1
+
+#define __RGB_RED_PORT__		PORTC
+#define __RGB_RED__				7
+#define __RGB_GREEN_PORT__		PORTE
+#define __RGB_GREEN__			2
+#define __RGB_BLUE_PORT__		PORTE
+#define __RGB_BLUE__			3
+
 #endif /* HARDWERPROFILE_H_ */

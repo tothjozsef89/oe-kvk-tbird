@@ -9,7 +9,9 @@
 #include "include/hardwareprofile.h"
 #include <avr/io.h>
 #include <avr/interrupt.h>
+#include "include/display.h"
 
+#ifdef _USE_KEYBOARD
 static inline void KStartScan(void);
 static inline void KStopScan(void);
 static inline base_t KScanKbd(void);
@@ -22,10 +24,12 @@ inline void InitKeyboard(void)
 	xKbd = 12;
 }
 
-ISR(TIMER1_OVF_vect)
+ISR(TIMER2_OVF_vect)
 {
 	static base_t xRow = 0;
-	TCNT1 = 0xFB1E;
+	//TCNT1 = 0xFB1E;
+	TCNT2 = 0xBE;
+
 	if (xKbdStatus == WRITE)
 	{
 		SET_ROW(xRow);
@@ -48,16 +52,23 @@ ISR(TIMER1_OVF_vect)
 
 static inline void KStartScan(void)
 {
-	TCNT1 = 0xFB1E;
+	/*TCNT1 = 0xFB1E;
 	TCCR1B |= _BV(CS11) | _BV(CS10);
-	TIMSK |= _BV(TOIE1);
+	TIMSK |= _BV(TOIE1);*/
+	// (16*10^6)/(1024*(255-190)) = 240 Hz
+	TCNT2 = 0xBE;	// Érték: 190
+	// Előosztó: 1024 (dok. 158.o.)
+	TCCR2 = _BV(CS22) | _BV(CS20);
+	// Megszakítás engedélyezése
+	TIMSK |= _BV(TOIE2);
+
 	xKbdStatus = WRITE;
 }
 
 static inline void KStopScan(void)
 {
-	TCCR1B = 0;
-	TIMSK &= ~_BV(TOIE1);
+	TCNT2 = 0;
+	TIMSK &= ~_BV(TOIE2);
 
 }
 
@@ -154,3 +165,4 @@ void KWaitForPressKey(base_t xKey)
 	} while (xKbd != xKey);
 	KStopScan();
 }
+#endif

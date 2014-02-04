@@ -16,7 +16,8 @@ void InitDisplay()
 	DDR_OUT(DISP_PORT, 0xFF);
 	DISP_PORT = 0x00;
 #ifdef __DISPLAY_MULTI_MODE__
-	DISP_OFF();
+	DISP_OFF()
+	;
 
 	TCNT0 = 6;
 	TIMSK |= _BV(TOIE0);
@@ -37,7 +38,8 @@ static void DPutDig(base_t xNumber, base_t xDig)
 {
 	switch (xDig)
 	{
-		case 1: DIGIT1 = xNumber; break;
+	case 1:
+		DIGIT1= xNumber; break;
 		case 2: DIGIT2 = xNumber; break;
 		case 3: DIGIT3 = xNumber; break;
 		case 4: DIGIT4 = xNumber; break;
@@ -103,7 +105,7 @@ static inline base_t Dec4ToDigs(unsigned int uiNum, int *Digits)
  */
 base_t DPrintToDisplay(unsigned int uiNum, uint8_t xDigit)
 {
-	int Digits[4];
+	int Digits[4] = {10,10,10,10};
 	base_t DigsNeed = 0;
 
 	DigsNeed = Dec4ToDigs(uiNum, Digits);

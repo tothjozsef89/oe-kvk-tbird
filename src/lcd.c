@@ -6,21 +6,8 @@
  */
 
 #include "include/lcd.h"
-#include "include/compiletime_diag.h"
-
-
-
-/*
-** constants/macros
-*/
-#define DDR(x) (*(&x - 1))      /* address of data direction register of port x */
-#if defined(__AVR_ATmega64__) || defined(__AVR_ATmega128__)
-    /* on ATmega64/128 PINF is on port 0x00 and not 0x60 */
-    #define PIN(x) ( &PORTF==&(x) ? _SFR_IO8(0x00) : (*(&x - 2)) )
-#else
-	#define PIN(x) (*(&x - 2))    /* address of input register of port x          */
-#endif
-
+#include "include/gpio.h"
+//#include "include/compiletime_diag.h"
 
 #if LCD_IO_MODE
 #define lcd_e_delay()   __asm__ __volatile__( "rjmp 1f\n 1:" );   //#define lcd_e_delay() __asm__ __volatile__( "rjmp 1f\n 1: rjmp 2f\n 2:" );

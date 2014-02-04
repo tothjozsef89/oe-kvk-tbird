@@ -6,6 +6,7 @@
  */
 #include "include/adc.h"
 
+#if defined(_USE_LM35)  || defined(_USE_TRIMMER)
 void InitADC(void)
 {
 	DDRF &= 0x0E;
@@ -30,7 +31,8 @@ void ASwitchADCH(base_t xChannel)
 	}
 	else if (xChannel == __LM35_AN_CH__)
 	{
-		if (((ADMUX & 7) != __LM35_AN_CH__) || ((ADMUX & 0xC0) != VREF_INTERNAL))
+		if (((ADMUX & 7) != __LM35_AN_CH__)
+				|| ((ADMUX & 0xC0) != VREF_INTERNAL))
 		{
 			mDisableADC();
 			ADMUX |= __LM35_AN_CH__ | VREF_INTERNAL;
@@ -42,3 +44,16 @@ void ASwitchADCH(base_t xChannel)
 	}
 
 }
+
+uint16_t AGetADCVal(base_t xADChannel)
+{
+	uint16_t uiRetVal = 0;
+
+	ASwitchADCH(xADChannel);
+	if (bit_is_set(ADCSRA, ADSC))
+			loop_until_bit_is_set(ADCSRA, ADSC);
+	uiRetVal = ADC;
+	mStartConversion();
+	return uiRetVal;
+}
+#endif

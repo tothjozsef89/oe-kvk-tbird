@@ -21,7 +21,7 @@
  *
  * 8 bites jelöletlen változótípus.
  */
-typedef		unsigned char	base_t;
+typedef		unsigned char	base_t __attribute__((__mode__(__QI__)));
 
 /**
  * \typedef bool

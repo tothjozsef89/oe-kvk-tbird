@@ -126,6 +126,7 @@ void InitDisplay(void);
  */
 void DPutDigs(base_t d4, base_t d3, base_t d2, base_t d1);
 base_t DPrintToDisplay (unsigned int, uint8_t);
+void kijelez(void);
 #endif /* __DISPLAY_MULTI_MODE__*/
 #endif /* _USE_DISPLAY */
 #endif /* DISPLAY_H_ */

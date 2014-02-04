@@ -28,5 +28,18 @@ void InitBoard ( void )
 #ifdef _USE_KEYBOARD
 	InitKeyboard();
 #endif // _USE_KEYBOARD
+
+#if defined(_USE_LM35)  || defined(_USE_TRIMMER)
+	InitADC();
+#endif // _USE_TRIMMER
+
+	//TODO Teásember!!!
+#ifdef _USE_LCD
+	lcd_init(LCD_DISP_ON);
+#endif
+
+#ifdef _USE_RGB
+	InitRGB();
+#endif
 	sei();
 }
